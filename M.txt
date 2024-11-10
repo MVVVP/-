@@ -63,3 +63,5 @@ Let THETA₅ = Ackermann(Ackermann(THETA₄, THETA₄), THETA₄) {THETA₄, THE
 Let FINAL_RESULT = THETA₅ * THETA₅ ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ 7000000000000  
 
 Let مَرَّة = FINAL_RESULT^FINAL_RESULT (FINAL_RESULT^FINAL_RESULT)^FINAL_RESULT ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ 999000000000000
+Let موت = iمَرَّة^مَرَّة^TREE(مَرَّة) (مَرَّة * مَرَّة^مَرَّة) ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ مَرَّة
+موت + مَرَّة = مَرَّة₂
