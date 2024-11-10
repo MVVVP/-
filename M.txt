@@ -1,53 +1,65 @@
-G = رقم غراهام
-T = TREE(3)
-R = رقم رايو
-B = Busy Beaver(100)
-A = Ackermann(G,G)
-M = رقم لودر
-H = رقم هاردي
-ألفا₁ = G^G^G^G ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ TREE(G)
-ألفا₂ = ألفا₁^(ألفا₁^ألفا₁) ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ ألفا₁
-ألفا₃ = ألفا₂^(ألفا₂^ألفا₂) ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ ألفا₂
-ألفا₄ = ألفا₃^(ألفا₃^ألفا₃) ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ ألفا₃
-ألفا₅ = ألفا₄^(ألفا₄^ألفا₄) ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ ألفا₄
-بيتا₁ = TREE(ألفا₅) {ألفا₅, ت, ر} BB(ألفا₅)
-بيتا₂ = TREE(TREE(بيتا₁)) {بيتا₁, ألفا₅, ت} BB(بيتا₁)
-بيتا₃ = TREE(TREE(TREE(بيتا₂))) {بيتا₂, بيتا₁, ألفا₅} BB(بيتا₂)
-بيتا₄ = TREE(TREE(TREE(TREE(بيتا₃)))) {بيتا₃, بيتا₂, بيتا₁} BB(بيتا₃)
-بيتا₅ = TREE(TREE(TREE(TREE(TREE(بيتا₄))))) {بيتا₄, بيتا₃, بيتا₂} BB(بيتا₄)
-جاما₁ = رايو(بيتا₅) {بيتا₅, ألفا₅, ت} TREE(بيتا₅)
-جاما₂ = رايو(رايو(جاما₁)) {جاما₁, بيتا₅, ألفا₅} TREE(جاما₁)
-جاما₃ = رايو(رايو(رايو(جاما₂))) {جاما₂, جاما₁, بيتا₅} TREE(جاما₂)
-جاما₄ = رايو(رايو(رايو(رايو(جاما₃)))) {جاما₃, جاما₂, جاما₁} TREE(جاما₃)
-جاما₅ = رايو(رايو(رايو(رايو(رايو(جاما₄))))) {جاما₄, جاما₃, جاما₂} TREE(جاما₄)
-دلتا₁ = BB(جاما₅) ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ TREE(جاما₅)
-دلتا₂ = BB(BB(دلتا₁)) ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ دلتا₁
-دلتا₃ = BB(BB(BB(دلتا₂))) ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ دلتا₂
-دلتا₄ = BB(BB(BB(BB(دلتا₃)))) ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ دلتا₃
-دلتا₅ = BB(BB(BB(BB(BB(دلتا₄))))) ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ دلتا₄
-إبسيلون₁ = دلتا₅^(جاما₅^بيتا₅) {ألفا₅, بيتا₅, جاما₅} TREE(دلتا₅)
-إبسيلون₂ = إبسيلون₁^(دلتا₅^جاما₅) {بيتا₅, جاما₅, دلتا₅} TREE(إبسيلون₁)
-إبسيلون₃ = إبسيلون₂^(إبسيلون₁^دلتا₅) {جاما₅, دلتا₅, إبسيلون₁} TREE(إبسيلون₂)
-إبسيلون₄ = إبسيلون₃^(إبسيلون₂^إبسيلون₁) {دلتا₅, إبسيلون₁, إبسيلون₂} TREE(إبسيلون₃)
-إبسيلون₅ = إبسيلون₄^(إبسيلون₃^إبسيلون₂) {إبسيلون₁, إبسيلون₂, إبسيلون₃} TREE(إبسيلون₄)
-زيتا₁ = لودر(إبسيلون₅) {إبسيلون₅, دلتا₅, جاما₅} BB(إبسيلون₅)
-زيتا₂ = لودر(لودر(زيتا₁)) {زيتا₁, إبسيلون₅, دلتا₅} BB(زيتا₁)
-زيتا₃ = لودر(لودر(لودر(زيتا₂))) {زيتا₂, زيتا₁, إبسيلون₅} BB(زيتا₂)
-زيتا₄ = لودر(لودر(لودر(لودر(زيتا₃)))) {زيتا₃, زيتا₂, زيتا₁} BB(زيتا₃)
-زيتا₅ = لودر(لودر(لودر(لودر(لودر(زيتا₄)))) {زيتا₄, زيتا₃, زيتا₂} BB(زيتا₄)
-إيتا₁ = هاردي(زيتا₅) {زيتا₅, إبسيلون₅, دلتا₅} TREE(زيتا₅)
-إيتا₂ = هاردي(هاردي(إيتا₁)) {إيتا₁, زيتا₅, إبسيلون₅} TREE(إيتا₁)
-إيتا₃ = هاردي(هاردي(هاردي(إيتا₂))) {إيتا₂, إيتا₁, زيتا₅} TREE(إيتا₂)
-إيتا₄ = هاردي(هاردي(هاردي(هاردي(إيتا₃)))) {إيتا₃, إيتا₂, إيتا₁} TREE(إيتا₃)
-إيتا₅ = هاردي(هاردي(هاردي(هاردي(هاردي(إيتا₄))))) {إيتا₄, إيتا₃, إيتا₂} TREE(إيتا₄)
-ثيتا₁ = أكيرمان(إيتا₅, إيتا₅) {إيتا₅, زيتا₅, إبسيلون₅} BB(إيتا₅)
-ثيتا₂ = أكيرمان(أكيرمان(ثيتا₁, ثيتا₁), ثيتا₁) {ثيتا₁, إيتا₅, زيتا₅} BB(ثيتا₁)
-ثيتا₃ = أكيرمان(أكيرمان(ثيتا₂, ثيتا₂), ثيتا₂) {ثيتا₂, ثيتا₁, إيتا₅} BB(ثيتا₂)
-ثيتا₄ = أكيرمان(أكيرمان(ثيتا₃, ثيتا₃), ثيتا₃) {ثيتا₃, ثيتا₂, ثيتا₁} BB(ثيتا₃)
-ثيتا₅ = أكيرمان(أكيرمان(ثيتا₄, ثيتا₄), ثيتا₄) {ثيتا₄, ثيتا₃, ثيتا₂} BB(ثيتا₄)
-يوتا₁ = ثيتا₅^(إيتا₅^زيتا₅) {زيتا₅, ثيتا₅, إبسيلون₅} TREE(ثيتا₅)
-يوتا₂ = يوتا₁^(إيتا₅^ثيتا₅) {إيتا₅, ثيتا₅, زيتا₅} TREE(يوتا₁)
-يوتا₃ = يوتا₂^(يوتا₁^إيتا₅) {ثيتا₅, يوتا₁, إيتا₅} TREE(يوتا₂)
-يوتا₄ = يوتا₃^(يوتا₂^يوتا₁) {إيتا₅, يوتا₁, ثيتا₅} TREE(يوتا₃)
-يوتا₅ = يوتا₄^(يوتا₃^يوتا₂) {ثيتا₅, يوتا₁, يوتا₂} TREE(يوتا₄)
-النهاية = يوτα₅^(يوتا₄^يوتا₃) {يوتا₂, يوتا₁, يوτα₄} TREE(يوتا₅)
+Let G = رقم غراهام  
+Let T = TREE(3)  
+Let R = رقم رايو
+Let B = Busy Beaver(100)  
+Let A = Ackermann(G, G)  
+Let M = رقم لودر
+Let H = رقم هاردي
+
+Let F₁ = F(G, G)  
+Let F₂ = F(F₁, F₁)  
+Let F₃ = F(F₂, F₂)  
+Let F₄ = F(F₃, F₃)  
+Let F₅ = F(F₄, F₄)  
+
+Let ALPHA₁ = G^G^G^G ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ TREE(G)  
+Let ALPHA₂ = ALPHA₁^(ALPHA₁^ALPHA₁) ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ ALPHA₁  
+Let ALPHA₃ = ALPHA₂^(ALPHA₂^ALPHA₂) ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ ALPHA₂  
+Let ALPHA₄ = ALPHA₃^(ALPHA₃^ALPHA₃) ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ ALPHA₃  
+Let ALPHA₅ = ALPHA₄^(ALPHA₄^ALPHA₄) ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ ALPHA₄  
+
+Let BETA₁ = TREE(ALPHA₅) {ALPHA₅, T, R} BB(ALPHA₅)  
+Let BETA₂ = TREE(TREE(BETA₁)) {BETA₁, ALPHA₅, T} BB(BETA₁)  
+Let BETA₃ = TREE(TREE(TREE(BETA₂))) {BETA₂, BETA₁, ALPHA₅} BB(BETA₂)  
+Let BETA₄ = TREE(TREE(TREE(TREE(BETA₃)))) {BETA₃, BETA₂, BETA₁} BB(BETA₃)  
+Let BETA₅ = TREE(TREE(TREE(TREE(TREE(BETA₄))))) {BETA₄, BETA₃, BETA₂} BB(BETA₄)  
+
+Let GAMMA₁ = Rayo(BETA₅) {BETA₅, ALPHA₅, T} TREE(BETA₅)  
+Let GAMMA₂ = Rayo(Rayo(GAMMA₁)) {GAMMA₁, BETA₅, ALPHA₅} TREE(GAMMA₁)  
+Let GAMMA₃ = Rayo(Rayo(Rayo(GAMMA₂))) {GAMMA₂, GAMMA₁, BETA₅} TREE(GAMMA₂)  
+Let GAMMA₄ = Rayo(Rayo(Rayo(Rayo(GAMMA₃)))) {GAMMA₃, GAMMA₂, GAMMA₁} TREE(GAMMA₃)  
+Let GAMMA₅ = Rayo(Rayo(Rayo(Rayo(Rayo(GAMMA₄))))) {GAMMA₄, GAMMA₃, GAMMA₂} TREE(GAMMA₄)  
+
+Let DELTA₁ = BB(GAMMA₅) ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ TREE(GAMMA₅)  
+Let DELTA₂ = BB(BB(DELTA₁)) ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ DELTA₁  
+Let DELTA₃ = BB(BB(BB(DELTA₂))) ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ DELTA₂  
+Let DELTA₄ = BB(BB(BB(BB(DELTA₃)))) ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ DELTA₃  
+Let DELTA₅ = BB(BB(BB(BB(BB(DELTA₄))))) ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ DELTA₄  
+
+Let EPSILON₁ = DELTA₅^(GAMMA₅^BETA₅) {ALPHA₅, BETA₅, GAMMA₅} TREE(DELTA₅)  
+Let EPSILON₂ = EPSILON₁^(DELTA₅^GAMMA₅) {BETA₅, GAMMA₅, DELTA₅} TREE(EPSILON₁)  
+Let EPSILON₃ = EPSILON₂^(EPSILON₁^DELTA₅) {GAMMA₅, DELTA₅, EPSILON₁} TREE(EPSILON₂)  
+Let EPSILON₄ = EPSILON₃^(EPSILON₂^EPSILON₁) {DELTA₅, EPSILON₁, EPSILON₂} TREE(EPSILON₃)  
+Let EPSILON₅ = EPSILON₄^(EPSILON₃^EPSILON₂) {EPSILON₁, EPSILON₂, EPSILON₃} TREE(EPSILON₄)  
+
+Let ZETA₁ = Loader(EPSILON₅) {EPSILON₅, DELTA₅, GAMMA₅} BB(EPSILON₅)  
+Let ZETA₂ = Loader(Loader(ZETA₁)) {ZETA₁, EPSILON₅, DELTA₅} BB(ZETA₁)  
+Let ZETA₃ = Loader(Loader(Loader(ZETA₂))) {ZETA₂, ZETA₁, EPSILON₅} BB(ZETA₂)  
+Let ZETA₄ = Loader(Loader(Loader(Loader(ZETA₃)))) {ZETA₃, ZETA₂, ZETA₁} BB(ZETA₃)  
+Let ZETA₅ = Loader(Loader(Loader(Loader(Loader(ZETA₄))))) {ZETA₄, ZETA₃, ZETA₂} BB(ZETA₄)  
+
+Let ETA₁ = Hardy(ZETA₅) {ZETA₅, EPSILON₅, DELTA₅} TREE(ZETA₅)  
+Let ETA₂ = Hardy(Hardy(ETA₁)) {ETA₁, ZETA₅, EPSILON₅} TREE(ETA₁)  
+Let ETA₃ = Hardy(Hardy(Hardy(ETA₂))) {ETA₂, ETA₁, ZETA₅} TREE(ETA₂)  
+Let ETA₄ = Hardy(Hardy(Hardy(Hardy(ETA₃)))) {ETA₃, ETA₂, ETA₁} TREE(ETA₃)  
+Let ETA₅ = Hardy(Hardy(Hardy(Hardy(Hardy(ETA₄))))) {ETA₄, ETA₃, ETA₂} TREE(ETA₄)  
+
+Let THETA₁ = Ackermann(ETA₅, ETA₅) {ETA₅, ZETA₅, EPSILON₅} BB(ETA₅)  
+Let THETA₂ = Ackermann(Ackermann(THETA₁, THETA₁), THETA₁) {THETA₁, ETA₅, ZETA₅} BB(THETA₁)  
+Let THETA₃ = Ackermann(Ackermann(THETA₂, THETA₂), THETA₂) {THETA₂, THETA₁, ETA₅} BB(THETA₂)  
+Let THETA₄ = Ackermann(Ackermann(THETA₃, THETA₃), THETA₃) {THETA₃, THETA₂, THETA₁} BB(THETA₃)  
+Let THETA₅ = Ackermann(Ackermann(THETA₄, THETA₄), THETA₄) {THETA₄, THETA₃, THETA₂} BB(THETA₄)  
+
+Let FINAL_RESULT = THETA₅ * THETA₅ ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ 7000000000000  
+
+Let مَرَّة = FINAL_RESULT^FINAL_RESULT (FINAL_RESULT^FINAL_RESULT)^FINAL_RESULT ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ 999000000000000
